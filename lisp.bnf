@@ -1,0 +1,9 @@
+<space> ::= (" " | "\t")+
+<atom> ::= ([a-z] | [A-Z] | [0-9] | "_" | "-" | "+" | "/" | "*" | "=")*
+<string> ::= "\"" ([a-z] | [A-Z] | [0-9] | "_" | "-" | "+" | "/" | "*" | "=" | <space> | "\\")* "\""
+<integer> ::= [0-9]+
+<float> ::= [0-9]+ "." [0-9]+
+<number> ::= <integer> | <float>
+<item> ::= <atom> | <string> | <number> | <sexpr>
+<sexpr> ::= "(" ((<item> (<space> | "\n"))* <item>) ")"
+<list> ::= (<sexpr> | <space> | "\n")*
